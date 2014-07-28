@@ -1,4 +1,4 @@
-<h1>Welcome to the bookmark manager</h1>
+<h1>Welcome to the Amazing & Incredible Bookmark Manager!</h1>
 
 Current links: 
 
@@ -7,3 +7,11 @@ Current links:
 	<li><a href="<%= link.url %>"><%= link.title %></li>
 	<% end %>
 </ul>
+
+<div id="new-link">
+	<form action="/links" method="post">
+		URI: <input type="text" name="url">
+		Title: <input type="text" name="title">
+		<input type="submit" value="Add link">
+	</form>
+</div>
