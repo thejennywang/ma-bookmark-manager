@@ -1,7 +1,8 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'sinatra'
 gem 'data_mapper'
+gem 'database_cleaner'
 gem 'dm-postgres-adapter'
 gem 'shotgun'
 gem 'capybara'
