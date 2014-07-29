@@ -17,7 +17,6 @@ feature "User adds a new link" do
 								"Makers Academy",
 								['education', 'ruby'])
 		link = Link.first
-		puts link.inspect
 		expect(link.tags.map(&:text)).to include("education")
 		expect(link.tags.map(&:text)).to include("ruby")
 	end
