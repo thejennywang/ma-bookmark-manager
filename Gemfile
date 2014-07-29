@@ -7,6 +7,7 @@ gem 'shotgun'
 gem 'capybara'
 gem 'cucumber'
 gem 'cucumber-sinatra'
+gem 'bcrypt-ruby'
 
 group :development, :test do
 	gem 'rspec'
