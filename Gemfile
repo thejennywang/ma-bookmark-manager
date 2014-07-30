@@ -8,6 +8,7 @@ gem 'capybara'
 gem 'cucumber'
 gem 'cucumber-sinatra'
 gem 'bcrypt-ruby'
+gem 'rack-flash3'
 
 group :development, :test do
 	gem 'rspec'
