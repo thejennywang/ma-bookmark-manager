@@ -9,7 +9,8 @@ require_relative 'helpers/application'
 
 
 class BookmarkManager < Sinatra::Base
-
+	include Helpers
+	
 	enable :sessions
 	set :sessions_secret, 'super secret'
 	use Rack::Flash
