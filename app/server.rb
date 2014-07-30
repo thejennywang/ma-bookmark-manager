@@ -10,7 +10,7 @@ require_relative 'helpers/application'
 
 class BookmarkManager < Sinatra::Base
 	include Helpers
-	
+
 	enable :sessions
 	set :sessions_secret, 'super secret'
 	use Rack::Flash
@@ -51,7 +51,7 @@ class BookmarkManager < Sinatra::Base
 			session[:user_id] = @user.id
 			redirect to('/')
 		else
-			flash[:notice] = "Sorry, your passwords don't match"
+			flash.now[:errors] = @user.errors.full_messages
 			erb :"users/new"
 		end
 	end
