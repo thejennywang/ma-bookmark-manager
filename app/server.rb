@@ -4,7 +4,7 @@ require 'rack-flash'
 require './lib/link'
 require './lib/tag' 
 require './lib/user'
-require_relative 'datamapper_setup'
+require_relative 'data_mapper_setup'
 require_relative 'helpers/application'
 
 
