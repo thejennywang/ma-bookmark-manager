@@ -6,10 +6,12 @@ require './lib/tag'
 require './lib/user'
 require_relative 'data_mapper_setup'
 require_relative 'helpers/application'
+require_relative 'helpers/session'
 
 
 class BookmarkManager < Sinatra::Base
-	include Helpers
+	include AppHelpers
+	include SessionHelpers
 
 	enable :sessions
 	set :sessions_secret, 'super secret'
