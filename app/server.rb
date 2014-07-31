@@ -81,15 +81,30 @@ class BookmarkManager < Sinatra::Base
 		redirect to('/')
 	end
 
-	get '/users/reset_password/:token' do
-		user = User.first(:email=> email)
+	get '/users/reset_password' do
+		erb :"/users/reset_password"
+	end
+
+	post '/users/reset_password/' do
+		email_reset = params[:email_reset]
+		user = User.first(:email => email_reset)
 		user.password_token = (1..64).map{('A'..'Z').to_a.sample}.join
 		user.password_token_timestamp = Time.now
 		user.save
-		user = User.first(:password_token => token)
+		flash[:notice] = "Please check your email for your password reset link."
+		redirect to('/')
 	end
 
 	#start the server if ruby file executed directly
 	run! if app_file ==$0
-
+	
+	def send_simple_message
+	  RestClient.post "https://api:key-b9d2ddeffe2814db3a84fd902e0db00a"\
+	  "@api.mailgun.net/v2/samples.mailgun.org/messages",
+	  :from => "Excited User <me@samples.mailgun.org>",
+	  :to => "jenny@rofls.info",
+	  :subject => "Hello",
+	  :text => "Testing some Mailgun awesomness!"
+	end
 end
+

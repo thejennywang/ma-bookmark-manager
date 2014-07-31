@@ -1,6 +1,6 @@
 module SessionHelpers
 
-		def sign_up(email = "alice@example.com",
+	def sign_up(email = "alice@example.com",
 							password = "oranges!",
 							password_confirmation = "oranges!")
 	visit '/users/new'
@@ -17,5 +17,14 @@ module SessionHelpers
 		fill_in 'password', :with => password
 		click_button 'Sign in'		
 	end
+
+	def send_simple_message(email)
+  RestClient.post "https://api:key-b9d2ddeffe2814db3a84fd902e0db00a"\
+  "@api.mailgun.net/v2/samples.mailgun.org/messages",
+  :from => "Excited User <me@samples.mailgun.org>",
+  :to => User.first.email,
+  :subject => "Hello",
+  :text => "Testing some Mailgun awesomness!"
+end
 
 end
