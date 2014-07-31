@@ -16,6 +16,7 @@ class BookmarkManager < Sinatra::Base
 	enable :sessions
 	set :sessions_secret, 'super secret'
 	use Rack::Flash
+	use Rack::MethodOverride
 
 	get '/' do
 		@links = Link.all
@@ -72,6 +73,20 @@ class BookmarkManager < Sinatra::Base
 			flash[:errors] = ["The email or password is incorrect"]
 			erb :"sessions/new"
 		end
+	end
+
+	delete '/sessions' do
+		flash[:notice] = "Goodbye!"
+		session[:user_id] = nil
+		redirect to('/')
+	end
+
+	get '/users/reset_password/:token' do
+		user = User.first(:email=> email)
+		user.password_token = (1..64).map{('A'..'Z').to_a.sample}.join
+		user.password_token_timestamp = Time.now
+		user.save
+		user = User.first(:password_token => token)
 	end
 
 	#start the server if ruby file executed directly
