@@ -4,6 +4,7 @@ require 'rack-flash'
 require './lib/link'
 require './lib/tag' 
 require './lib/user'
+require 'rest_client'
 require_relative 'data_mapper_setup'
 require_relative 'helpers/application'
 require_relative 'helpers/session'
@@ -91,20 +92,21 @@ class BookmarkManager < Sinatra::Base
 		user.password_token = (1..64).map{('A'..'Z').to_a.sample}.join
 		user.password_token_timestamp = Time.now
 		user.save
-		flash[:notice] = "Please check your email for your password reset link."
+		send_email
 		redirect to('/')
 	end
 
 	#start the server if ruby file executed directly
 	run! if app_file ==$0
 	
-	def send_simple_message
-	  RestClient.post "https://api:key-b9d2ddeffe2814db3a84fd902e0db00a"\
-	  "@api.mailgun.net/v2/samples.mailgun.org/messages",
-	  :from => "Excited User <me@samples.mailgun.org>",
-	  :to => "jenny@rofls.info",
-	  :subject => "Hello",
-	  :text => "Testing some Mailgun awesomness!"
+	def send_email
+	  flash[:notice] = "Please check your email for your password reset link."
+	  # RestClient.post "https://api:key-b9d2ddeffe2814db3a84fd902e0db00a"\
+	  # "@api.mailgun.net/v2/sandbox45a4bf305d004c17971ce53c3c23b15d.mailgun.org/messages",
+	  # :from => "postmaster@sandbox45a4bf305d004c17971ce53c3c23b15d.mailgun.org",
+	  # :to => "jenny@rofls.info",
+	  # :subject => "Hello",
+	  # :text => "Testing some Mailgun awesomness!"
 	end
 end
 

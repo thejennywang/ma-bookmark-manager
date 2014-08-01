@@ -10,6 +10,7 @@ gem 'cucumber-sinatra'
 gem 'bcrypt-ruby'
 gem 'rack-flash3'
 gem 'sinatra-partial'
+gem 'rest_client'
 
 group :development, :test do
 	gem 'rspec'
