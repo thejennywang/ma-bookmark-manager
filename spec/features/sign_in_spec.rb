@@ -1,6 +1,5 @@
 feature "User signs in" do
-	include SessionHelpers
-	
+		
 	before(:each) do
 		User.create(:email => "test@test.com",
 								:password => 'test',

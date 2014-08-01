@@ -1,6 +1,6 @@
 feature "User resets password" do
+	
 	include SessionHelpers
-
 
 	before(:each) do
 			User.create(:email => "iforgot@password.com",

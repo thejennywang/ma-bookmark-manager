@@ -1,5 +1,4 @@
 feature 'User signs out' do
-include SessionHelpers
 
 	before(:each) do
 		User.create(:email => "test@test.com",
