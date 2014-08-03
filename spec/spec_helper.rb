@@ -9,6 +9,8 @@ require './app/server'
 require 'database_cleaner'
 require 'capybara/rspec'
 require 'rack-flash'
+require 'sinatra/partial'
+require 'haml'
 
 Capybara.app = Sinatra::Application
 

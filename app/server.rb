@@ -2,6 +2,7 @@ require 'data_mapper'
 require 'sinatra'
 require 'rack-flash'
 require 'rest_client'
+require 'sinatra/partial'
 require_relative 'models/link'
 require_relative 'models/tag' 
 require_relative 'models/user'
@@ -21,7 +22,7 @@ use Rack::Flash
 use Rack::MethodOverride
 set :partial_template_engine, :erb
 set :public_dir, Proc.new { File.join(root, "..", "public")}
-# set :views, Proc.new { File.join(root, "views")}
+set :views, Proc.new { File.join(root, "views")}
 
 include AppHelpers
 include SessionHelpers

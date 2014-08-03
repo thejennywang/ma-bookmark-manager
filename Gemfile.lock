@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     addressable (2.3.6)
     bcrypt (3.1.7)
@@ -62,6 +62,8 @@ GEM
     do_postgres (0.10.14)
       data_objects (= 0.10.14)
     fastercsv (1.5.5)
+    haml (4.0.5)
+      tilt
     json (1.8.1)
     json_pure (1.8.1)
     mime-types (2.3)
@@ -112,6 +114,7 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  haml
   rack-flash3
   rest_client
   rspec

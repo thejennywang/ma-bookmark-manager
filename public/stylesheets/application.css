@@ -1,6 +1,6 @@
 body {
   font-family: Helvetica, Arial, Sans-serif;
-  background-image: url(/images/congruent_outline.png)
+  background-image: url(/images/extra_clean_paper.png)
 }
 
 a.button {
@@ -38,4 +38,28 @@ header {
     flex: 1; /* http://learnlayout.com/flexbox.html */
     -webkit-flex: 1;
     text-align: right;  
+  }
+
+  .link {
+  background-color: #EEE; /* same as #EEEEEE */
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  /* 10px for top and bottom, inherit from parent */
+  /* for left and right */
+  margin: 10px inherit;
+  padding: 15px 10px;
+}
+
+  .link a.title {
+    /* to make it slightly more prominent */
+    letter-spacing: 1px;
+  }
+
+  .link .description {
+    margin: 10px inherit;
+  }
+
+  .link .source {
+    /* http://learnlayout.com/float.html and the next 4 sections */
+    float: right; 
+    font-size: 12px;
   }

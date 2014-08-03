@@ -1,8 +1,9 @@
 Current links: 
 
-<ul>
-	<% @links.each do |link| %>
-	<li><a href="<%= link.url %>"><%= link.title %></a></li>
+<div id='links-container'>
+	<ul id='links'>
+		<% @links.each do |link| %>
+		<%= partial :link, :locals => {:link => link}  %>
 	<% end %>
 </ul>
 
