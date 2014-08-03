@@ -1,31 +1,13 @@
+<!DOCTYPE html>
 <html>
 <head>
-			<link rel="stylesheet" type="text/css" href"stylesheets/style.css">
+			<title>The Bookmark Manager</title>
+			<link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
+			<link rel="stylesheet" type="text/css" href="stylesheets/application.css">
 </head>
 <body>
-		<% if current_user %>
-				Welcome, <%= current_user.email %>
-				<form method="post" action="/sessions">
-					<input type="hidden" name="_method" value="delete">
-					<input type="submit" value="Sign out">
-				</form>
-		<% end %>
-
-		<% if flash[:errors] && !flash[:errors].empty? %>
-			Sorry, there were the following problems with the form:
-			<ul id="errors">
-				<% flash[:errors].each do |error| %>
-				<li><%= error %></li>
-				<% end %>
-			</ul>
-		<% end %>
-
-		<% if flash[:notice] %>
-			<div id="notice">
-				<%= flash[:notice] %>
-			</div>
-		<% end %>
-
-		<%= yield %>
+			<%= erb :header %>
+			<%= erb :flash %>
+			<%= yield %>
 </body>
 </html>

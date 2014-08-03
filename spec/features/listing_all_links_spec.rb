@@ -7,14 +7,14 @@ feature "User browses the list of links" do
 								:title => "Makers Academy",
 								:tags => [Tag.first_or_create(:text => 'education')])
 		Link.create(:url => "http://www.google.com",
-								 :title => "Google",
-								 :tags => [Tag.first_or_create(:text => 'search')])
+								:title => "Google",
+								:tags => [Tag.first_or_create(:text => 'search')])
 		Link.create(:url => "http://www.bing.com",
-								 :title => "Bing",
-								 :tags => [Tag.first_or_create(:text => 'search')])
+								:title => "Bing",
+								:tags => [Tag.first_or_create(:text => 'search')])
 		Link.create(:url => "http://www.code.org",
-								 :title => "Code.org",
-								 :tags => [Tag.first_or_create(:text => 'education')])
+								:title => "Code.org",
+								:tags => [Tag.first_or_create(:text => 'education')])
 	end
 
 	scenario "when opening the home page" do
