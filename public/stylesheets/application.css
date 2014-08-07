@@ -3,22 +3,13 @@ body {
   background-image: url(/images/extra_clean_paper.png)
 }
 
-a.button {
-  display: inline-block; /* display inline but have dimensions */
-  width: 80px;
-  background-color: #82B743;
-  border: 2px solid white;
-  color: white; /*text colour*/
-  text-decoration: none; /*no underlining*/
-  padding: 5px 10px;
-  text-align: center;
-  border-radius: 4px; /*rounded corners*/
-  margin-left: 5px;
-  margin-right: 5px;
-  text-shadow: 0 0 2px rgba(0,0,0, 0.4); /*for readability*/
+ul .errors {
+  background-color: gray;
+  border-radius: 5px;
+  padding: 5px;
 }
 
-header {  
+  header {  
   height: 40px;
   background-color: black;
   color: white;
@@ -30,7 +21,8 @@ header {
   header > * {
     margin: auto 0;
   }
-  header #logo {    
+
+  header #logo  {    
     display: flex;      
   }
 
@@ -40,9 +32,25 @@ header {
     text-align: right;  
   }
 
+  .button, .button_form {
+    display: inline-block; /* display inline but have dimensions */
+    width: 80px;
+    background-color: #82B743;
+    border: 2px solid white;
+    color: white; /*text colour*/
+    text-decoration: none; /*no underlining*/
+    padding: 5px 10px;
+    text-align: center; 
+    border-radius: 4px; /*rounded corners*/
+    margin-left: 5px;
+    margin-right: 5px;
+    text-shadow: 0 0 2px rgba(0,0,0, 0.4); /*for readability*/
+    font-size: 14px;
+  }
+
   .link {
   background-color: #EEE; /* same as #EEEEEE */
-  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  box-shadow: 0 0 5px rgba(128, 128, 128, 0.4);
   /* 10px for top and bottom, inherit from parent */
   /* for left and right */
   margin: 10px inherit;
@@ -62,4 +70,33 @@ header {
     /* http://learnlayout.com/float.html and the next 4 sections */
     float: right; 
     font-size: 12px;
+  }
+
+  #links-container {
+    padding: 0px 0px 70px 0px;
+  }
+
+footer {
+  display: flex;
+  background-color: #999;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+  footer > * {
+    margin: auto inherit;
+  }
+
+  footer img {
+    vertical-align: top;
+  }
+
+  footer #technologies {
+    -webkit-flex: 1;
+    flex: 1;
+  }
+
+  footer p {
+    padding: 5px 25px;
   }
